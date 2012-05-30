@@ -1,0 +1,10 @@
+<!--
+    Consult http://www.phpunit.de/manual/3.6/en/index.html
+
+    Example of xml to plug php listener to TeamCity
+-->
+<phpunit>
+    <listeners>
+      <listener class="TeamCityListener" file="TeamCityListener.php"/>
+    </listeners>
+</phpunit>
