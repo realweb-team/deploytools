@@ -66,6 +66,23 @@ class TeamCityListener implements PHPUnit_Framework_TestListener {
     }
 
     /**
+     * Risky test.
+     *
+     * @param PHPUnit_Framework_Test $test
+     * @param Exception $e
+     * @param float $time
+     * @since Method available since Release 4.0.0
+     */
+    public function addRiskyTest(PHPUnit_Framework_Test $test, Exception $e, $time)
+    {
+        printf(
+            "##teamcity[testRisky name='%s' message='%s']\n",
+            $test->getName(),
+            str_replace("\n", "|n|r ", $e->getMessage())
+        );
+    }
+
+    /**
      * Print message on skipped test
      *
      * @param PHPUnit_Framework_Test $test
